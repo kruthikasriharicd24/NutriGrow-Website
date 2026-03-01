@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 33% 98%;
+    --foreground: 210 11% 18%;
+    --card: 36 33% 98%;
+    --card-foreground: 210 11% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 11% 18%;
+    --primary: 145 18% 54%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 36 33% 98%;
+    --secondary-foreground: 210 11% 18%;
+    --muted: 30 20% 92%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 6 93% 71%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
+    --ring: 145 18% 54%;
+    --radius: 0.75rem;
+    --chart-1: 158 36% 60%;
+    --chart-2: 173 58% 50%;
+    --chart-3: 186 45% 45%;
+    --chart-4: 197 37% 40%;
+    --chart-5: 210 30% 35%;
+  }
+
+  .dark {
+    --background: 210 11% 15%;
+    --foreground: 0 0% 98%;
+    --card: 210 11% 18%;
+    --card-foreground: 0 0% 98%;
+    --popover: 210 11% 15%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 145 18% 54%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 11% 22%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 210 11% 22%;
+    --muted-foreground: 0 0% 64%;
+    --accent: 6 93% 71%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 11% 25%;
+    --input: 210 11% 25%;
+    --ring: 145 18% 54%;
+    --chart-1: 158 36% 60%;
+    --chart-2: 173 58% 50%;
+    --chart-3: 186 45% 45%;
+    --chart-4: 197 37% 40%;
+    --chart-5: 210 30% 35%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Manrope', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+  }
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .noise-texture {
+    position: relative;
+  }
+  .noise-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+  }
+  
+  .fade-up {
+    animation: fadeUp 0.6s ease-out;
+  }
+  
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
